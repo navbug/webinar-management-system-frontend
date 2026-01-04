@@ -1,16 +1,96 @@
-# React + Vite
+# Webinar Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application for managing webinars and attendee registrations built with React, NestJS, and MongoDB.
 
-Currently, two official plugins are available:
+## Repository Links
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Backend Repository:** https://github.com/navbug/webinar-management-system-backend
+- **Frontend Repository:** https://github.com/navbug/webinar-management-system-frontend
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Create and view webinars
+- Register attendees for webinars
+- View webinar details with attendee statistics
+- Prevent duplicate registrations
+- Clean and responsive UI with Tailwind CSS
 
-## Expanding the ESLint configuration
+## Setup Instructions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Clone Repositories
+
+```bash
+# Clone backend repository
+git clone <BACKEND_REPO_URL>
+cd backend
+
+# Clone frontend repository
+git clone <FRONTEND_REPO_URL>
+cd frontend
+```
+
+### Backend Setup
+
+1. Navigate to the backend directory:
+```bash
+cd backend
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create a `.env` file in the backend root:
+```env
+MONGODB_URI=<MONGODB_URL>
+PORT=3000
+```
+
+4. Start the backend server:
+```bash
+npm run start:dev
+```
+
+The backend will run on `http://localhost:3000`
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+```bash
+cd frontend
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create a `.env` file in the frontend root:
+```env
+VITE_API_BASE_URL=http://localhost:3000
+```
+
+4. Start the frontend development server:
+```bash
+npm run dev
+```
+
+The frontend will run on `http://localhost:5173`
+
+## API Endpoints
+
+### Webinar APIs
+- `POST /webinars` - Create a new webinar
+- `GET /webinars` - List all webinars
+- `GET /webinars/:id` - Get webinar details with attendees
+
+### Attendee APIs
+- `POST /webinars/:id/register` - Register an attendee
+- `GET /webinars/:id/attendees` - List attendees for a webinar
+
+## Assumptions
+
+1. No authentication/authorization required
+2. No edit or delete functionality required
+   
